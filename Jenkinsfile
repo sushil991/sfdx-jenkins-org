@@ -9,10 +9,13 @@ node {
     def TEST_LEVEL='RunLocalTests'
     def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://test.salesforce.com"
 
-	println 'SF_CONSUMER_KEY IS'  SF_CONSUMER_KEY
-	println 'SF_USERNAME IS'  SF_USERNAME
-	println 'SERVER_KEY_CREDENTIALS_ID  IS'  SERVER_KEY_CREDENTIALS_ID
-	
+	println 'SF_CONSUMER_KEY IS'
+	println SF_CONSUMER_KEY
+	println 'SF_USERNAME IS'
+	println SF_USERNAME
+	println 'SERVER_KEY_CREDENTIALS_ID  IS'
+	println SERVER_KEY_CREDENTIALS_ID
+
     def toolbelt = tool 'toolbelt'
 
 
@@ -30,8 +33,8 @@ node {
     // JWT key credentials.
     // -------------------------------------------------------------------------
 
- 	withEnv(["HOME=${env.WORKSPACE}"]) {	
-	
+ 	withEnv(["HOME=${env.WORKSPACE}"]) {
+
 	    withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
 		// -------------------------------------------------------------------------
 		// Authenticate to Salesforce using the server key.
